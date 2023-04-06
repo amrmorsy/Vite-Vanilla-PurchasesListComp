@@ -1,3 +1,5 @@
+demo: https://vite-vanilla-purchases-list-comp.vercel.app/
+
 Install dependencies
 
 ```
