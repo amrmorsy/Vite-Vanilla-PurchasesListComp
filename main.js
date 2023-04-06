@@ -1,31 +1,11 @@
 import "./style.css";
-// import javascriptLogo from './javascript.svg'
-// import viteLogo from '/vite.svg'
-// import { setupCounter } from './counter.js'
+import optionsIcon from "/optionsIcon.svg";
 
-// document.querySelector('#app').innerHTML = `
-// <div>
-// <a href="https://vitejs.dev" target="_blank">
-// <img src="${viteLogo}" class="logo" alt="Vite logo" />
-// </a>
-// <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-// <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-// </a>
-// <h1>Hello Vite!</h1>
-// <div class="card">
-// <button id="counter" type="button"></button>
-// </div>
-// <p class="read-the-docs">
-// Click on the Vite logo to learn more
-// </p>
-// </div>
-// `
-
-// setupCounter(document.querySelector('#counter'))
-
+//cors is disabled at the serving endpoint, lets proxy the request to get around the cors access issue for now
 const endpoint =
   "https://cors-anywhere.herokuapp.com/https://idme.s3.amazonaws.com/interview/data.json";
 
+//generates a random RGB color string every time its invoked
 const randomColor = (n) => {
   const rgb = [0, 0, 0];
   for (let i = 0; i < 24; i++) {
@@ -42,14 +22,14 @@ const randomColor = (n) => {
   );
 };
 
+//expects a timestamp for a parameter and returns a formatted string in the form of "Month day, year"
 const transformDate = (date) => {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "long",
   }).format(new Date(date));
 };
 
-const optionsIcon = `<svg id="Layer_1" width="16" height="16" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.96 122.88"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>3-vertical-dots</title><path class="cls-1" d="M15,0A15,15,0,1,1,0,15,15,15,0,0,1,15,0Zm0,92.93a15,15,0,1,1-15,15,15,15,0,0,1,15-15Zm0-46.47a15,15,0,1,1-15,15,15,15,0,0,1,15-15Z"/></svg>`;
-
+//expects a number for a parameter and returns a formatted US currency string
 const transformPrice = (value) => {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -65,8 +45,8 @@ fetch(endpoint)
 
     data.forEach((item, index) => {
       const row = document.createElement("div");
+      //generate a random color to set as a border for catageory tags to simlate the same behavior expressed in the mocks
       const someColor = randomColor(index);
-      console.log(someColor);
       row.classList.add("purchase-history-row", "body");
       row.innerHTML = `
         <div class="purchase-history-col name">${item.name}</div>
@@ -82,7 +62,7 @@ fetch(endpoint)
         <div class="purchase-history-col description">${item.description}</div>
         <div class="purchase-history-col price"><span class="amount">${transformPrice(
           item.price
-        )}</span><span class="options-icon">${optionsIcon}</span></div>
+        )}</span><span class="options-icon"><img src="${optionsIcon}" alt="additional options" /></span></div>
       `;
       historyBody.appendChild(row);
     });
