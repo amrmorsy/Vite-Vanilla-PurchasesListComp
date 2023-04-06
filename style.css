@@ -19,10 +19,6 @@ h1 {
   font-size: 14px;
   line-height: 150%;
 
-  /* Table */
-
-  box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -33,9 +29,6 @@ h1 {
   height: var(--container-max-height);
   margin: 0 auto;
 
-  /* background: #ffffff;
-  border: 1px solid #e7e7ed;
-  border-radius: 4px; */
   border: 1px solid #e7e7ed;
   border-radius: 4px;
 }
@@ -52,7 +45,6 @@ h1 {
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
-  /* height: 48px; */
 
   background: #ffffff;
   box-shadow: inset 0px -1px 0px #e7e7ed;
@@ -104,16 +96,11 @@ h1 {
 .purchase-history-body {
   display: flex;
   flex-direction: column;
-  /* max-height: 400px; */
   overflow: auto;
 }
 
 .purchase-history-row.body {
   display: flex;
-  /* border-bottom: 1px solid #ddd; */
-}
-
-.purchase-history-row.body:last-child {
 }
 .purchase-history-col {
   flex: 1;
@@ -151,10 +138,6 @@ h1 {
   flex: 0.5;
 }
 
-.purchase-history-col.price .options-icon {
-  /* flex: 2; */
-}
-
 .purchase-history-col.purchaseDate {
   display: none;
 }
@@ -190,7 +173,6 @@ h1 {
     padding-left: 0;
   }
   .purchase-history-col.name {
-    /* display: none; */
     display: flex;
     width: 100%;
   }
@@ -221,9 +203,6 @@ h1 {
   .purchase-history-col.name img-wrapper {
     display: flex;
     flex: 1;
-    /* height: 30px; */
-    /* flex-grow: 0; */
-    /* flex-shrink: 1; */
   }
 
   .purchase-history-col.location img {
@@ -261,8 +240,4 @@ h1 {
   .purchase-history-row.body:first-child {
     margin-top: 10px;
   }
-
-  /* .purchase-history-row.body:last-child {
-    border-bottom: none;
-  } */
 }
