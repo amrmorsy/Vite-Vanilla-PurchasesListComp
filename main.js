@@ -7,12 +7,6 @@ const endpoint = `https://corsproxy.io/?${encodeURIComponent(
   "https://idme.s3.amazonaws.com/interview/data.json"
 )}`;
 
-const fetchPurchaseHistory = async () => {
-  const response = await fetch(endpoint);
-  const data = await response.json();
-  return data;
-};
-
 fetch(endpoint)
   .then((response) => response.json())
   .then((data) => {
