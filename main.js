@@ -3,9 +3,7 @@ import optionsIcon from "/optionsIcon.svg";
 import { randomColor, transformDate, transformPrice } from "./utils.js";
 
 //cors is disabled at the serving endpoint, lets proxy the request to get around the cors access issue for now
-const endpoint = `https://corsproxy.io/?${encodeURIComponent(
-  "https://idme.s3.amazonaws.com/interview/data.json"
-)}`;
+const endpoint = `https://corsproxy.io/?url=https://idme.s3.amazonaws.com/interview/data.json`;
 
 fetch(endpoint)
   .then((response) => response.json())
